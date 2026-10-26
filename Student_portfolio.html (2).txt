@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Portfolio</title>
+
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: #f2f6ff;
+            color: #333;
+        }
+
+
+        nav {
+            background: #3157a4;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+
+        section {
+            background: white;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 700px;
+            border-radius: 10px;
+        }
+
+
+        h1, h2 {
+            color: #3157a4;
+        }
+
+
+        button {
+            background: #3157a4;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+
+        .project {
+            background: #eef2ff;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+
+
+        input, textarea {
+            width: 95%;
+            padding: 10px;
+            margin: 7px 0;
+        }
+
+
+        textarea {
+            height: 60px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+    <nav>
+        <h2>My Portfolio</h2>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+
+    <section id="about">
+        <h1>Hello, I'm Lavanya</h1>
+        <p>BCA Student | Web Developer</p>
+        <p>I am interested in creating simple and interactive websites.</p>
+    </section>
+
+
+    <section>
+        <h2>Education</h2>
+        <p>BCA - Thiruvalluvar University</p>
+    </section>
+
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <button onclick="showSkills()">View Skills</button>
+        <p id="skillsList"></p>
+    </section>
+
+
+    <section id="projects">
+        <h2>Projects</h2>
+
+
+        <button onclick="filterProjects('all')">All</button>
+        <button onclick="filterProjects('web')">Web</button>
+        <button onclick="filterProjects('js')">JavaScript</button>
+
+
+        <div class="project web">
+            <h3>Student Portfolio</h3>
+            <p>Personal portfolio website.</p>
+        </div>
+
+
+        <div class="project web">
+            <h3>College Transport Portal</h3>
+            <p>College bus information website.</p>
+        </div>
+
+
+        <div class="project js">
+            <h3>Quiz Application</h3>
+            <p>Interactive quiz using JavaScript.</p>
+        </div>
+    </section>
+
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+
+
+        <form onsubmit="sendMessage(event)">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+
+    <script>
+        function showSkills() {
+            document.getElementById("skillsList").innerHTML =
+            "HTML | CSS | JavaScript | C | C++";
+        }
+
+
+        function filterProjects(type) {
+            let projects = document.querySelectorAll(".project");
+
+
+            projects.forEach(function(project) {
+                if (type == "all" || project.classList.contains(type)) {
+                    project.style.display = "block";
+                } else {
+                    project.style.display = "none";
+                }
+            });
+        }
+
+
+        function sendMessage(event) {
+            event.preventDefault();
+            alert("Message sent successfully!");
+        }
+    </script>
+
+
+</body>
+</html>
